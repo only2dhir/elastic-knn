@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: elastic-knn
+
+devglan:
+  elastic:
+    url: http://127.0.0.1:9200
+    apiKey: YOUR_BASE64_ENCODED_API_KEY
+    similarityThreshold: "60%"
+    minScore: 0.91
+    modelId: all-MiniLM-L6-v2
+    indices:
+      - my-documents
