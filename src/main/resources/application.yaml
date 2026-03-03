@@ -4,10 +4,14 @@ spring:
 
 devglan:
   elastic:
-    url: http://127.0.0.1:9200
-    apiKey: YOUR_BASE64_ENCODED_API_KEY
+    url: https://localhost:9200
+    #apiKey: YOUR_BASE64_ENCODED_API_KEY
+    username: elastic
+    #.\bin\elasticsearch-reset-password.bat -u elastic --url https://localhost:9200
+    password: ojQPn8zI+5f4o1_m-oGz
     similarityThreshold: "60%"
     minScore: 0.91
-    modelId: all-MiniLM-L6-v2
+    modelId: multilingual-e5-small
+    field: content_vector
     indices:
-      - my-documents
+      - semantic-docs

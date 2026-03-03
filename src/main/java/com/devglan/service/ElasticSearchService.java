@@ -99,9 +99,9 @@ public class ElasticSearchService {
             SearchRequest searchRequest = new SearchRequest.Builder()
                     .index(elasticProperties.getIndices())
                     .size(20)
-                    .minScore(elasticProperties.getMinScore())
+                    //.minScore(elasticProperties.getMinScore())
                     .knn(knn -> knn
-                            .field("embeddings")
+                            .field(elasticProperties.getField())
                             .k(20)
                             .numCandidates(100)
                             .queryVectorBuilder(qvb -> qvb
@@ -112,7 +112,7 @@ public class ElasticSearchService {
                             )
                     )
                     .build();
-
+            log.info(searchRequest.toString());
             SearchResponse<SearchResult> response =
                     elasticsearchClient.search(searchRequest, SearchResult.class);
 
@@ -148,7 +148,7 @@ public class ElasticSearchService {
                     .size(20)
                     .minScore(elasticProperties.getMinScore())
                     .knn(knn -> knn
-                            .field("embeddings")
+                            .field(elasticProperties.getField())
                             .k(20)
                             .numCandidates(100)
                             .queryVectorBuilder(qvb -> qvb

@@ -12,9 +12,12 @@ import java.util.List;
 public class ElasticProperties {
 
     private String url;
-    private String apiKey;
+    //private String apiKey;
+    private String username;
+    private String password;
     private String similarityThreshold;
     private Double minScore;
     private String modelId;
+    private String field;
     private List<String> indices;
 }
